@@ -45,9 +45,14 @@ namespace ToDo
 
             else if (args.Contains("-a"))
 
-                File.AppendAllText("ToDoList.txt", "\n" + args[1]);
+                using (StreamWriter writer = File.AppendText("ToDoList.txt"))
+                {
+                    writer.WriteLine(args[1]);
+                }
+            
 
-            Console.ReadLine();
+
+                    Console.ReadLine();
         }
     }
 }
