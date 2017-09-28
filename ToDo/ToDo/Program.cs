@@ -83,7 +83,15 @@ namespace ToDo
                 }
             }
 
-            else { Console.WriteLine("Unsupported argument"); }
+            else
+            {
+                Console.WriteLine("Unsupported argument");
+                Console.WriteLine();
+                Console.WriteLine("-l   Lists all the tasks \n" +
+                                  "-a   Adds a new task \n" +
+                                  "-r   Removes an task \n" +
+                                  "-c   Completes an task");                         
+            }
             
          Console.ReadLine();
         }
