@@ -68,9 +68,17 @@ namespace ToDo
                     File.WriteAllLines("ToDoList.txt", file);
                 }
 
-                catch
+                catch (IndexOutOfRangeException)
                 {
                     Console.WriteLine("Unable to add: no task provided");
+                }
+                catch (ArgumentOutOfRangeException)
+                {
+                    Console.WriteLine("Unable to remove: index is out of bound");
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Unable to remove: index is not a number");
                 }
             }
             
