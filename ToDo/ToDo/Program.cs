@@ -24,8 +24,17 @@ namespace ToDo
             }
             else if (args.Contains("-l"))
             {
-                string text = File.ReadAllText("ToDoList.txt");
-                Console.WriteLine(text);
+                string[] text = File.ReadAllLines("ToDoList.txt");
+
+                List<string> list = new List<string>();
+                               
+                for (int i = 0; i < text.Count(); i++)
+                {
+                    list.Add(text[i]);
+                    Console.WriteLine(" " + (i + 1) + " - " + list[i]);
+                }
+            
+                
             }
 
             Console.ReadLine();
