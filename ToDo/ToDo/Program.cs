@@ -22,6 +22,7 @@ namespace ToDo
                                   "-r   Removes an task \n" +
                                   "-c   Completes an task");
             }
+           
             else if (args.Contains("-l"))
             {
                 string[] text = File.ReadAllLines("ToDoList.txt");
@@ -81,6 +82,8 @@ namespace ToDo
                     Console.WriteLine("Unable to remove: index is not a number");
                 }
             }
+
+            else { Console.WriteLine("Unsupported argument"); }
             
          Console.ReadLine();
         }
