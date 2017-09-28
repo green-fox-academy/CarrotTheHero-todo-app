@@ -56,9 +56,22 @@ namespace ToDo
                 catch
                 {
                     Console.WriteLine("Unable to add: no task provided");
+                }                              
+            }
+
+            else if (args.Contains("-r"))
+            {
+                try
+                {
+                    var file = new List<string>(File.ReadAllLines("ToDoList.txt"));
+                    file.RemoveAt(Convert.ToInt32(args[1])-1);
+                    File.WriteAllLines("ToDoList.txt", file);
                 }
 
-               
+                catch
+                {
+                    Console.WriteLine("Unable to add: no task provided");
+                }
             }
             
          Console.ReadLine();
