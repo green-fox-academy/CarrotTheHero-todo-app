@@ -26,14 +26,20 @@ namespace ToDo
             {
                 string[] text = File.ReadAllLines("ToDoList.txt");
 
-                List<string> list = new List<string>();
-                               
-                for (int i = 0; i < text.Count(); i++)
+                if (text.Length == 0)
                 {
-                    list.Add(text[i]);
-                    Console.WriteLine(" " + (i + 1) + " - " + list[i]);
+                    Console.WriteLine("No todos for today! :)");
+                }      
+                else
+                {
+                    List<string> list = new List<string>();
+
+                    for (int i = 0; i < text.Count(); i++)
+                    {
+                        list.Add(text[i]);
+                        Console.WriteLine(" " + (i + 1) + " - " + list[i]);
+                    }
                 }
-            
                 
             }
 
