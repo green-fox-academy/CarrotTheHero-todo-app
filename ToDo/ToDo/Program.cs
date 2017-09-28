@@ -44,15 +44,24 @@ namespace ToDo
             }
 
             else if (args.Contains("-a"))
-
-                using (StreamWriter writer = File.AppendText("ToDoList.txt"))
+            {
+                try
                 {
-                    writer.WriteLine(args[1]);
+                    using (StreamWriter writer = File.AppendText("ToDoList.txt"))
+                    {
+                        writer.WriteLine(args[1]);
+                    }
                 }
+
+                catch
+                {
+                    Console.WriteLine("Unable to add: no task provided");
+                }
+
+               
+            }
             
-
-
-                    Console.ReadLine();
+         Console.ReadLine();
         }
     }
 }
