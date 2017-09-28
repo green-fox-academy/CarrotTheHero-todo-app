@@ -29,7 +29,7 @@ namespace ToDo
                 if (text.Length == 0)
                 {
                     Console.WriteLine("No todos for today! :)");
-                }      
+                }
                 else
                 {
                     List<string> list = new List<string>();
@@ -40,8 +40,12 @@ namespace ToDo
                         Console.WriteLine(" " + (i + 1) + " - " + list[i]);
                     }
                 }
-                
+
             }
+
+            else if (args.Contains("-a"))
+
+                File.AppendAllText("ToDoList.txt", "\n" + args[1]);
 
             Console.ReadLine();
         }
