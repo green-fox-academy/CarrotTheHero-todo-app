@@ -85,10 +85,26 @@ namespace ToDo
 
             else if (args.Contains("-c"))
             {
-                var file = File.ReadAllLines("ToDoList.txt");
-                string temp = file[Convert.ToInt32(args[1]) - 1].Substring(4);
-                file[Convert.ToInt32(args[1]) - 1] = "{X} " + temp;
-                File.WriteAllLines("ToDoList.txt", file);
+                try
+                {
+                    var file = new List<string>(File.ReadAllLines("ToDoList.txt"));
+                    string temp = file[Convert.ToInt32(args[1]) - 1].Substring(4);      
+                    file[Convert.ToInt32(args[1]) - 1] = "{X} " + temp;
+                    File.WriteAllLines("ToDoList.txt", file);
+                }
+
+                catch (IndexOutOfRangeException)
+                {
+                    Console.WriteLine("Unable to add: no task provided");
+                }
+                catch (ArgumentOutOfRangeException)
+                {
+                    Console.WriteLine("Unable to remove: index is out of bound");
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Unable to remove: index is not a number");
+                }
             }
 
             else
