@@ -50,7 +50,7 @@ namespace ToDo
                 {
                     using (StreamWriter writer = File.AppendText("ToDoList.txt"))
                     {
-                        writer.WriteLine(args[1]);
+                        writer.WriteLine("{ } " + args[1]);
                     }
                 }
 
@@ -81,6 +81,14 @@ namespace ToDo
                 {
                     Console.WriteLine("Unable to remove: index is not a number");
                 }
+            }
+
+            else if (args.Contains("-c"))
+            {
+                var file = File.ReadAllLines("ToDoList.txt");
+                string temp = file[Convert.ToInt32(args[1]) - 1].Substring(4);
+                file[Convert.ToInt32(args[1]) - 1] = "{X} " + temp;
+                File.WriteAllLines("ToDoList.txt", file);
             }
 
             else
